@@ -6,7 +6,7 @@
   <link href="/quandongli.github.io/atom.xml" rel="self"/>
   
   <link href="https://quandongli.github.io/"/>
-  <updated>2020-01-03T06:09:57.060Z</updated>
+  <updated>2020-01-03T06:16:33.245Z</updated>
   <id>https://quandongli.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://quandongli.github.io/post/a594f8b3.html"/>
     <id>https://quandongli.github.io/post/a594f8b3.html</id>
     <published>2020-01-03T04:22:51.000Z</published>
-    <updated>2020-01-03T06:09:57.060Z</updated>
+    <updated>2020-01-03T06:16:33.245Z</updated>
     
-    <content type="html"><![CDATA[<p>@[TOC]</p><h1 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h1><ol><li>C/S架构:Client/Server 客户端/服务器端<blockquote><p>在用户本地有一个客户端程序，在远程有一个服务器端程序<br>例如：QQ、迅雷。。。<br>缺点：</p><ol><li>开发、安装、部署、维护麻烦。<br>优点：</li><li>用户体验好</li></ol></blockquote></li><li>B/S：Browser/Server 浏览器/服务器端<blockquote><p>只需要一个浏览器，用户通过不同的网址（url），访问不同的服务器端程序<br>优点：</p><ol><li>开发、安装、部署、维护简单。<br>缺点：</li><li>如果应用过大，用户的体验可能会受到影响</li><li>对硬件要求过高</li></ol></blockquote><a id="more"></a><h1 id="B-S架构简介"><a href="#B-S架构简介" class="headerlink" title="B/S架构简介"></a>B/S架构简介</h1></li><li>资源分类<ol><li>静态资源<ul><li>使用静态网页技术开发发布的资源</li><li>特点：1. 如果用户请求的是静态资源，那么服务器会直接将静态资源发送给浏览器。浏览器中内置了静态资源的解析引擎，可以展示静态资源</li><li>如：文本、图片、音频、视频、HTML、CSS、JavaScript</li></ul></li><li>动态资源<ul><li>使用动态网页及时发布的资源</li><li>特点：1. 所有用户访问，得到的结果可能不一样。</li><li><ol start="2"><li>如果用户请求的是动态资源，那么服务器就会执行动态资源，转换为静态资源，再发送给浏览器。</li></ol></li><li>如：jsp/servlet、php、sap…</li></ul></li></ol></li></ol><h1 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h1><ul><li>HTML：用于搭建基础页面，展示页面</li><li>CSS：用户美化页面，布局页面</li><li>JavaScript：控制页面的元素，让页面有一些动态效果。<br>![资源调用](web入门课程之基础知识/资源分类.jpg)</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>@[TOC]</p><h1 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h1><ol><li>C/S架构:Client/Server 客户端/服务器端<blockquote><p>在用户本地有一个客户端程序，在远程有一个服务器端程序<br>例如：QQ、迅雷。。。<br>缺点：</p><ol><li>开发、安装、部署、维护麻烦。<br>优点：</li><li>用户体验好</li></ol></blockquote></li><li>B/S：Browser/Server 浏览器/服务器端<blockquote><p>只需要一个浏览器，用户通过不同的网址（url），访问不同的服务器端程序<br>优点：</p><ol><li>开发、安装、部署、维护简单。<br>缺点：</li><li>如果应用过大，用户的体验可能会受到影响</li><li>对硬件要求过高</li></ol></blockquote><a id="more"></a><h1 id="B-S架构简介"><a href="#B-S架构简介" class="headerlink" title="B/S架构简介"></a>B/S架构简介</h1></li><li>资源分类<ol><li>静态资源<ul><li>使用静态网页技术开发发布的资源</li><li>特点：1. 如果用户请求的是静态资源，那么服务器会直接将静态资源发送给浏览器。浏览器中内置了静态资源的解析引擎，可以展示静态资源</li><li>如：文本、图片、音频、视频、HTML、CSS、JavaScript</li></ul></li><li>动态资源<ul><li>使用动态网页及时发布的资源</li><li>特点：1. 所有用户访问，得到的结果可能不一样。</li><li><ol start="2"><li>如果用户请求的是动态资源，那么服务器就会执行动态资源，转换为静态资源，再发送给浏览器。</li></ol></li><li>如：jsp/servlet、php、sap…</li></ul></li></ol></li></ol><h1 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h1><ul><li>HTML：用于搭建基础页面，展示页面</li><li>CSS：用户美化页面，布局页面</li><li>JavaScript：控制页面的元素，让页面有一些动态效果。<br></li></ul><p><img src="/quandongli.github.io/post/a594f8b3.htm/%E8%B5%84%E6%BA%90%E5%88%86%E7%B1%BB.jpg" alt="资源调用"></p>]]></content>
     
     <summary type="html">
     
