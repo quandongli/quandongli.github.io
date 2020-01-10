@@ -6,7 +6,7 @@
   <link href="/quandongli.github.io/atom.xml" rel="self"/>
   
   <link href="https://quandongli.github.io/"/>
-  <updated>2020-01-09T12:22:21.246Z</updated>
+  <updated>2020-01-10T03:19:45.501Z</updated>
   <id>https://quandongli.github.io/</id>
   
   <author>
@@ -17,32 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java编程基础之变量与常量</title>
+    <link href="https://quandongli.github.io/post/1b17473c.html"/>
+    <id>https://quandongli.github.io/post/1b17473c.html</id>
+    <published>2020-01-10T03:18:32.000Z</published>
+    <updated>2020-01-10T03:19:45.501Z</updated>
+    
+    <content type="html"><![CDATA[<p>再编程语言中变量与常量是两个非常重要且基础的两个概念，变量的声明是编程中一个基本操作。</p><a id="more"></a><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>&emsp;&emsp;变量是指再程序运行的过程中存储可以变化的数据，声明一个变量，将向系统申请一块内存（大小由变量的类型决定）,常量是指再程序运行期间不变的数据。<br>&emsp;&emsp;变量就好比是一个水果篮，里面可以放苹果、香蕉等各种水果，里面放的东西是可以变的，但是苹果始终是苹果，不会变成香蕉。</p><h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><p>&emsp;&emsp;变量再使用前都需要进行声明，在java中声明变量的格式为：类型名 变量名;，比如double salary；这里就声明了一个double类型的名为salary变量。<br>&emsp;&emsp;变量的命名需要遵循以下几点规则：</p><ol><li>变量名必须是以字母开关并以字母或数字构成的序列。<blockquote><p>这里的字母包括Unicode编码所包含的所有表示字母的字符，如：_、$<br>要想知道某个字符是不是unicode中定义的字母可以使用Charcter类中的isJavaIdentifierStart和isJavaIdentifierPart方法进行判断​​</p></blockquote></li><li>不能使用java中的保留字作为变量名，如；int，double等</li><li>Java中变量名是区分大小写的</li><li>变量名没有长度限制<h2 id="变量的初始化"><a href="#变量的初始化" class="headerlink" title="变量的初始化"></a>变量的初始化</h2>&emsp;&emsp;在声明变量名之后，应该使用赋值语句对该变量进行初始化，使用未初始化的变量的值将会导致程序错误。比如以下操作，编译器会进行报错。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num;</span><br><span class="line">System.out.println(num);<span class="comment">//num变量里面什么内容都没有，无法打印</span></span><br></pre></td></tr></table></figure>但是如果进行如下操作将回正常输出：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">11</span>;</span><br><span class="line">System.out.println(num);<span class="comment">//将会输出11</span></span><br></pre></td></tr></table></figure><h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2>在java中常量的声明方式是final 类型名 变量名;比如final int NUM = 11;<blockquote><p>与c语言中定义常量不同的是，c语言中常量的使用的是#define，且不需要指定常量的类型，用等号进行赋值，没有分号<br>在Java中使用final声明的常量，需要注意以下几点：</p></blockquote></li><li>final变量不能再次赋值；</li><li>final方法不能被重写；</li><li>final类不能被继承；</li><li>如果常量定义再main方法的内部，则该类的其他方法也能够使用这个常量</li><li>如果这个常量被public修饰，则这个常量也可以被其他类使用</li></ol><h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><p>在编程实践时，有时候一个变量只会在几个值之间取值，比如描述日常生活中衣服的尺码时，一般就只有S、M、L、X等，这时候就可以使用枚举类型来表示衣服的尺寸。定义格式如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Size &#123;SMALL,MEDIUM,LARGE&#125;;</span><br></pre></td></tr></table></figure><p>使用这个枚举类型，格式如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Size s = Size.MEDIUM;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;再编程语言中变量与常量是两个非常重要且基础的两个概念，变量的声明是编程中一个基本操作。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="java" scheme="https://quandongli.github.io/categories/java/"/>
+    
+    
+      <category term="java" scheme="https://quandongli.github.io/tags/java/"/>
+    
+      <category term="基础" scheme="https://quandongli.github.io/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java基础之四种基础类型</title>
     <link href="https://quandongli.github.io/post/2f86de21.html"/>
     <id>https://quandongli.github.io/post/2f86de21.html</id>
     <published>2020-01-09T12:19:52.000Z</published>
-    <updated>2020-01-09T12:22:21.246Z</updated>
+    <updated>2020-01-09T12:28:09.796Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="java数据类型概述"><a href="#java数据类型概述" class="headerlink" title="java数据类型概述"></a>java数据类型概述</h2><p>在java语言中有四类八种基本类型分别是：</p><ol><li>整型<ul><li>long</li><li>int</li><li>short</li><li>byte</li></ul></li><li>浮点型<ul><li>double</li><li>float</li></ul></li><li>char</li><li>boolean<a id="more"></a><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2>整型表示是没有小数部分的数值。在java中有定义了四种整型常量，他们表示范围从小到大分别是：</li></ol><ul><li>长整型long：占8个字节</li><li>整型int：占4个字节</li><li>短整型short：占2个字节</li><li>byte：占1个字节</li></ul><table><thead><tr><th align="center">类型</th><th align="center">存储需求</th><th align="center">取值范围</th></tr></thead><tbody><tr><td align="center">long</td><td align="center">8字节</td><td align="center">-9223372036854775808 ~ 9223372036854775807</td></tr><tr><td align="center">short</td><td align="center">2字节</td><td align="center">-32768 ~ 32767</td></tr><tr><td align="center">byte</td><td align="center">1字节</td><td align="center">-128-127</td></tr></tbody></table><p>在java中整数类型与c语言中有几个不同点</p><ol><li>第一个不同点是，在Java语言中支持在为数值字面量加下划线，方便阅读，比如：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">1000_000_000</span>);<span class="comment">//将输出为1000000000</span></span><br></pre></td></tr></table></figure></li><li>Java中每个类型所占的字节大小不会随着运行系统的变化而变化。这主要要是为了满足Java的设计目标：一处编译、处处运行。</li><li>第二个不同点，也是重要的不同点是，在Java语言中不支持无符号（unsigned）类型的整型，在Java中如果要表示一个无符号类型的数字将会是一个比较麻烦的事情（一般是通过升级类型，比如将byte类型升级为int类型，将int类型转换为long类型或者通过位运算）。</li></ol><p><strong>关于unsigned类型在以后遇到再进行详细讨论</strong></p><h2 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h2><p>所谓的浮点类型就是可以表示小数部分的数值，在Java中有两种浮点类型：<br>|类型|存储需求|取值范围|<br>|:-:|:-:|:-:|<br>|float|4字节|大约为+-3.40282347E+38F(有效位数为6~7位)|<br>|double|8字节|大约1.79769313486231570E+308（有效位数为15位）|<br>double表示的这种数值精度是float类型的两倍，所以一般称float类型为单精度浮点类型，double类型为双精度浮点类型。一般情况下小数默认为double类型。可以在小数数值后面加上一个f或者F将该数值表示为float类型。double类型可以在小数数值后面添加d或者D表示（也可以不加，直接默认）。</p><h2 id="char类型"><a href="#char类型" class="headerlink" title="char类型"></a>char类型</h2><p>&emsp;&emsp;char类型表示的是一个在字符，占两个字节，其的字面量值是用一个单引号引起来的一个字符，如’a’，但是不能用单引号引两个或以上的字符，如：’ab’,如果需要引两个或以上的字符这需要用一对双引号，这样表示的将会是字符串。<br>&emsp;&emsp;在Java中char类型是一个采用UTF-16编码表示Unicode码点的代码单元，这样做的原因是不同的编码方案下可能对应着不同的字母，且有些字母短一个字节就可以表示，但是有写字节表示比较长需要两个字节或多个字节，于是java设计者为了避免这样的事情发生（Java的设计思想是不管程序在哪运行，运行的结果都要一样），在初期效果确实达到了，但是随着中国等国家的表意文字的出现，这种设计也随之崩溃。于是乎，这种设计使得Java中的char类型并不是一个“称职”的类型，比如在字符串的一些操作中很容易产生错误，所以现在都<strong>强烈建议不要在java中使用char类型</strong></p><h2 id="boolean类型"><a href="#boolean类型" class="headerlink" title="boolean类型"></a>boolean类型</h2><p>Boolean（布尔）类型只有两个值：false以及true，用来判断逻辑条件。这里需要注意的是在java中<strong>整形和布尔值之间不能进行相互交换</strong>，在c语言中false可以用0来表示，true可以用1来表示，但是在Java中却不可以这样表示。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="java数据类型概述"><a href="#java数据类型概述" class="headerlink" title="java数据类型概述"></a>java数据类型概述</h2><p>在java语言中有四类八种基本类型分别是：</p><a id="more"></a><ol><li>整型：long、int、short、byte</li><li>浮点型：double、float</li><li>char</li><li>boolean（布尔类型）</li></ol><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>整型表示是没有小数部分的数值。在java中有定义了四种整型常量，他们表示范围从小到大分别是：</p><ul><li>长整型long：占8个字节</li><li>整型int：占4个字节</li><li>短整型short：占2个字节</li><li>byte：占1个字节</li></ul><table><thead><tr><th align="center">类型</th><th align="center">存储需求</th><th align="center">取值范围</th></tr></thead><tbody><tr><td align="center">long</td><td align="center">8字节</td><td align="center">-9223372036854775808 ~ 9223372036854775807</td></tr><tr><td align="center">short</td><td align="center">2字节</td><td align="center">-32768 ~ 32767</td></tr><tr><td align="center">byte</td><td align="center">1字节</td><td align="center">-128-127</td></tr></tbody></table><p>在java中整数类型与c语言中有几个不同点</p><ol><li>第一个不同点是，在Java语言中支持在为数值字面量加下划线，方便阅读，比如：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">1000_000_000</span>);<span class="comment">//将输出为1000000000</span></span><br></pre></td></tr></table></figure></li><li>Java中每个类型所占的字节大小不会随着运行系统的变化而变化。这主要要是为了满足Java的设计目标：一处编译、处处运行。</li><li>第二个不同点，也是重要的不同点是，在Java语言中不支持无符号（unsigned）类型的整型，在Java中如果要表示一个无符号类型的数字将会是一个比较麻烦的事情（一般是通过升级类型，比如将byte类型升级为int类型，将int类型转换为long类型或者通过位运算）。</li></ol><p><strong>关于unsigned类型在以后遇到再进行详细讨论</strong></p><h2 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h2><p>所谓的浮点类型就是可以表示小数部分的数值，在Java中有两种浮点类型：<br>|类型|存储需求|取值范围|<br>|:-:|:-:|:-:|<br>|float|4字节|大约为+-3.40282347E+38F(有效位数为6~7位)|<br>|double|8字节|大约1.79769313486231570E+308（有效位数为15位）|<br>double表示的这种数值精度是float类型的两倍，所以一般称float类型为单精度浮点类型，double类型为双精度浮点类型。一般情况下小数默认为double类型。可以在小数数值后面加上一个f或者F将该数值表示为float类型。double类型可以在小数数值后面添加d或者D表示（也可以不加，直接默认）。</p><h2 id="char类型"><a href="#char类型" class="headerlink" title="char类型"></a>char类型</h2><p>&emsp;&emsp;char类型表示的是一个在字符，占两个字节，其的字面量值是用一个单引号引起来的一个字符，如’a’，但是不能用单引号引两个或以上的字符，如：’ab’,如果需要引两个或以上的字符这需要用一对双引号，这样表示的将会是字符串。<br>&emsp;&emsp;在Java中char类型是一个采用UTF-16编码表示Unicode码点的代码单元，这样做的原因是不同的编码方案下可能对应着不同的字母，且有些字母短一个字节就可以表示，但是有写字节表示比较长需要两个字节或多个字节，于是java设计者为了避免这样的事情发生（Java的设计思想是不管程序在哪运行，运行的结果都要一样），在初期效果确实达到了，但是随着中国等国家的表意文字的出现，这种设计也随之崩溃。于是乎，这种设计使得Java中的char类型并不是一个“称职”的类型，比如在字符串的一些操作中很容易产生错误，所以现在都<strong>强烈建议不要在java中使用char类型</strong></p><h2 id="boolean类型"><a href="#boolean类型" class="headerlink" title="boolean类型"></a>boolean类型</h2><p>Boolean（布尔）类型只有两个值：false以及true，用来判断逻辑条件。这里需要注意的是在java中<strong>整形和布尔值之间不能进行相互交换</strong>，在c语言中false可以用0来表示，true可以用1来表示，但是在Java中却不可以这样表示。</p>]]></content>
     
     <summary type="html">
     
       &lt;h2 id=&quot;java数据类型概述&quot;&gt;&lt;a href=&quot;#java数据类型概述&quot; class=&quot;headerlink&quot; title=&quot;java数据类型概述&quot;&gt;&lt;/a&gt;java数据类型概述&lt;/h2&gt;&lt;p&gt;在java语言中有四类八种基本类型分别是：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;整型&lt;ul&gt;
-&lt;li&gt;long&lt;/li&gt;
-&lt;li&gt;int&lt;/li&gt;
-&lt;li&gt;short&lt;/li&gt;
-&lt;li&gt;byte&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;浮点型&lt;ul&gt;
-&lt;li&gt;double&lt;/li&gt;
-&lt;li&gt;float&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;char&lt;/li&gt;
-&lt;li&gt;boolean&lt;/li&gt;&lt;/ol&gt;
     
     </summary>
     
