@@ -15,15 +15,15 @@
 <meta property="og:url" content="https://quandongli.github.io/post/e0ba64a3.html">
 <meta property="og:site_name" content="什么东东的博客">
 <meta property="og:description" content="本篇文章将会对Java语言中的计算规则进行总结，内容包括：  基本运算符 Java中使用数学函数 类型转换 赋值操作 关系运算 位运算 运算优先级">
-<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/e0ba64a3.htm/post/undefined/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png">
-<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/e0ba64a3.htm/post/undefined/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
+<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/e0ba64a3/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png">
+<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/e0ba64a3/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
 <meta property="article:published_time" content="2020-01-11T05:05:15.000Z">
-<meta property="article:modified_time" content="2020-01-11T05:20:34.735Z">
+<meta property="article:modified_time" content="2020-01-11T05:20:42.601Z">
 <meta property="article:author" content="CodeWhat">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="运算符">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://quandongli.github.io/quandongli.github.io/post/e0ba64a3.htm/post/undefined/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png">
+<meta name="twitter:image" content="https://quandongli.github.io/quandongli.github.io/post/e0ba64a3/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png">
   
     <link rel="alternative" href="/atom.xml" title="什么东东的博客" type="application/atom+xml">
   
@@ -208,7 +208,7 @@
 <p>&emsp;&emsp;在java中“=”，是赋值的意思（将右边的值赋给左边的变量），而非判断两个数值是否相等（在java中判断是否相等用“==”）。<br>&emsp;&emsp;在Java中也存在着一些“简写”形式的表达式子。比如：如果表达式为x = x+4;可以写成x+=4.（同样的有+=、-=、=、%=等）；表达是i++(或i–)表示i自增（自减）1，需要注意的是，这种写法表示的是先使用i的值，使用完之后i再自增（自减）1，而++i（–i）表示的是先将i的是进行自增（自减）1，再使用i的值。</p>
 <h2 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h2><p>&emsp;&emsp;对于需要进行的诸如幂运算、开方、取对数等数学运算，Java中Math类来提供了各种各样的额数学运算，例如：求平方根的sqrt(),幂运算的pow等。使用math类可以通过两种方式，一种是直接使用，如：Math.sqrt(),也可以在程序中引入math类，再程序的开始处加上“import static java.lang.Math.*;”即可，之后再使用sqrt函数直接写即可。<br>&emsp;&emsp;再math类中还提供了一种“特殊”的取模运算。再java程序中如果直接使用/进行取模，如果计算的被除数是一个负数，那么得到的结果也将会是一个负数。比如-5/2将会得到的是-2而不是日常数学计算中的2，math类中提供了floorMod方法可以将这种情况下的计算结果取正，但是对于除数是负数的情况，也将无能为力。</p>
 <h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>&emsp;&emsp;在java中有两种情况将会发生类型转换。<br>&emsp;&emsp;一种是当二元运算符（如+）连接的两个数值中类型不同时，则计算结果的类型将会转换为两者中精度更高的类型，比如float%int类型，其计算结果将会是float类型。<br>&emsp;&emsp;另外一种情况就是进行强制类型转换时，例如int i = (int)n;那么无论n的数值是一个什么类型都会被转换为int类型。<br>&emsp;&emsp;java中将浮点数转换为整数时，该方式将直接将小数部分截断，例如2.6转换为int类型的结果是2。math类中的round方法进行类型转换时将取一个最接近的数。如9.8将会转换为10但是9.1将会转换为9。<br>&emsp;&emsp;在进行类型转换的过程有些类型之间的转换将会产生信息损失，有些则不会。下图展现的就是在二元运算符中发生类型转换时的情形。</p>
-<img src="/quandongli.github.io/post/e0ba64a3.htm/post/undefined/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" class title="类型转换">
+<img src="/quandongli.github.io/post/e0ba64a3/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" class title="类型转换">
 <h2 id="关系运算"><a href="#关系运算" class="headerlink" title="关系运算"></a>关系运算</h2><p>&emsp;&emsp;java中存在以下几种位运算：</p>
 <ol>
 <li>==或!=（&gt; 、&lt;、&gt;=、&lt;=也类似）：判断两个值是都相等或不相等，是则返回true，否则返回false</li>
@@ -223,7 +223,7 @@
 <li>右移 A&lt; &lt; X：将操作数A按二进制向右移x位</li>
 <li>左移：A&gt;&gt;X：将操作数A按二进制向左移x位</li>
 <li>无符号右移：A&gt;&gt;&gt;x：将操作数A按二进制向右移x位，并用零填充最高位。<br>示例：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">      <span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> j,k,p,q,s,d,f;</span><br><span class="line">j = <span class="number">10</span> | <span class="number">0b1100</span>;</span><br><span class="line">k = <span class="number">10</span> &amp; <span class="number">0b1100</span>;</span><br><span class="line">p = ~<span class="number">10</span>;</span><br><span class="line">q = <span class="number">10</span> &lt;&lt; <span class="number">3</span>;</span><br><span class="line">s = <span class="number">10</span> &gt;&gt; <span class="number">3</span>;</span><br><span class="line">d = -<span class="number">10</span>&gt;&gt;&gt;<span class="number">1</span>;</span><br><span class="line">System.out.println(<span class="string">"i = "</span> + Integer.toBinaryString(i));<span class="comment">//1010</span></span><br><span class="line">System.out.println(<span class="string">"j = "</span> +Integer.toBinaryString(j));<span class="comment">//1110</span></span><br><span class="line">System.out.println(<span class="string">"k = "</span> +Integer.toBinaryString(k));<span class="comment">//1000</span></span><br><span class="line">System.out.println(<span class="string">"p = "</span> +Integer.toBinaryString(p));<span class="comment">//11111111111111111111111111110101</span></span><br><span class="line">System.out.println(<span class="string">"q = "</span> +Integer.toBinaryString(q));<span class="comment">//1010000</span></span><br><span class="line">System.out.println(<span class="string">"s = "</span> +Integer.toBinaryString(s));<span class="comment">//1</span></span><br><span class="line">System.out.println(<span class="string">"d = "</span> +Integer.toBinaryString(d));<span class="comment">//1111111111111111111111111111011</span></span><br></pre></td></tr></table></figure>
-<h2 id="运算的优先级"><a href="#运算的优先级" class="headerlink" title="运算的优先级"></a>运算的优先级</h2>如果使用圆括号，则按照运算符的优先级进行运算。同一级别的运算符将会按照从左到右的次序进行计算（一些右结合的运算符除外），例如a&amp;&amp;b||c就相当于(a&amp;&amp;b)||c,具体运算符优先级见下图：<img src="/quandongli.github.io/post/e0ba64a3.htm/post/undefined/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" class title="运算符优先级">
+<h2 id="运算的优先级"><a href="#运算的优先级" class="headerlink" title="运算的优先级"></a>运算的优先级</h2>如果使用圆括号，则按照运算符的优先级进行运算。同一级别的运算符将会按照从左到右的次序进行计算（一些右结合的运算符除外），例如a&amp;&amp;b||c就相当于(a&amp;&amp;b)||c,具体运算符优先级见下图：<img src="/quandongli.github.io/post/e0ba64a3/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" class title="运算符优先级">
 
 </li>
 </ol>
@@ -538,11 +538,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color4">运算符</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,7 +550,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">运算符</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
             
             <div class="clearfix"></div>
