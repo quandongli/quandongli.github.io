@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/e0ba64a3/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png">
 <meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/e0ba64a3/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png">
 <meta property="article:published_time" content="2020-01-11T05:05:15.000Z">
-<meta property="article:modified_time" content="2020-01-11T05:20:42.601Z">
+<meta property="article:modified_time" content="2020-01-13T06:48:48.441Z">
 <meta property="article:author" content="CodeWhat">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="运算符">
@@ -58,7 +58,7 @@
 		  <h1 class="header-author"><a href="/">CodeWhat</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">搞笑认真</p>
+		<p class="header-subtitle">认真工作、快乐生活</p>
 		
 
 		<nav class="header-menu">
@@ -120,7 +120,7 @@
 			  <h1 class="header-author js-header-author">CodeWhat</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>搞笑认真<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>认真工作、快乐生活<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -209,6 +209,17 @@
 <h2 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h2><p>&emsp;&emsp;对于需要进行的诸如幂运算、开方、取对数等数学运算，Java中Math类来提供了各种各样的额数学运算，例如：求平方根的sqrt(),幂运算的pow等。使用math类可以通过两种方式，一种是直接使用，如：Math.sqrt(),也可以在程序中引入math类，再程序的开始处加上“import static java.lang.Math.*;”即可，之后再使用sqrt函数直接写即可。<br>&emsp;&emsp;再math类中还提供了一种“特殊”的取模运算。再java程序中如果直接使用/进行取模，如果计算的被除数是一个负数，那么得到的结果也将会是一个负数。比如-5/2将会得到的是-2而不是日常数学计算中的2，math类中提供了floorMod方法可以将这种情况下的计算结果取正，但是对于除数是负数的情况，也将无能为力。</p>
 <h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>&emsp;&emsp;在java中有两种情况将会发生类型转换。<br>&emsp;&emsp;一种是当二元运算符（如+）连接的两个数值中类型不同时，则计算结果的类型将会转换为两者中精度更高的类型，比如float%int类型，其计算结果将会是float类型。<br>&emsp;&emsp;另外一种情况就是进行强制类型转换时，例如int i = (int)n;那么无论n的数值是一个什么类型都会被转换为int类型。<br>&emsp;&emsp;java中将浮点数转换为整数时，该方式将直接将小数部分截断，例如2.6转换为int类型的结果是2。math类中的round方法进行类型转换时将取一个最接近的数。如9.8将会转换为10但是9.1将会转换为9。<br>&emsp;&emsp;在进行类型转换的过程有些类型之间的转换将会产生信息损失，有些则不会。下图展现的就是在二元运算符中发生类型转换时的情形。</p>
 <img src="/quandongli.github.io/post/e0ba64a3/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" class title="类型转换">
+<p>&emsp;&emsp;最后一种发生的比较隐蔽。对于byte/short/char三种类型来说，如果右侧赋值的数值没有超过范围，javac编译器将会自动的为我们加上(byte)(short))(char),这也是为什么我们在对char类型整形值时有时不会报错的原因，比如：char c = 65;进行打印输出时会打印处A。但是对于如下的一段代码将会进行报错：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span>  a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">short</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">short</span> result = <span class="number">10</span>+<span class="number">20</span>;<span class="comment">//等于30 </span></span><br><span class="line"><span class="keyword">short</span> result1 c = a + c;<span class="comment">//将会报错：cannot convert from int to short</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;发生这种现象的原因时有与java中编译器的常量优化造成的。在Java中，在给变量赋值时，如果等号右侧的表达式中全部都是常量，没有任何变量时，编译器将javac将会直接计算出结果，而不是等到运行程序时再进行计算。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> result = <span class="number">10</span>+<span class="number">20</span>;<span class="comment">//编译器将会直接将result的值设定为30，而不是等运行的时候再进行计算</span></span><br></pre></td></tr></table></figure>
+<p>但是如果在等号的有变量存在，则不会进行这种优化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> result = a + <span class="number">20</span><span class="comment">//结果将会报错，因为a时一个short类型的变量，20默认时int型，则结过因该时一个整型。但是这里的resul时一个short类型，所以会报错</span></span><br></pre></td></tr></table></figure>
+<p>这时候就需要进行程序员进行以下强制转换:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">short</span> result = (<span class="keyword">short</span>)(a + <span class="number">20</span>);<span class="comment">//结果会被强制转换为short类型，不会报错</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Java这么做的原因时，java的设计者认为，类似于10+20这样的计算，它的结果时确定的，不会变的，所以不如在编译的之后就直接算出来，这样就不要再在程序运行的时候取浪费计算机的资源进行计算了，但是如果有变量存在，例如：a + 20，它的结果是由a的值决定的，但是a时一个变量，其值是可能发生变化的，所以在编译的时候不能进行计算，必须等到运行的时候才能进行计算。</p>
+</blockquote>
 <h2 id="关系运算"><a href="#关系运算" class="headerlink" title="关系运算"></a>关系运算</h2><p>&emsp;&emsp;java中存在以下几种位运算：</p>
 <ol>
 <li>==或!=（&gt; 、&lt;、&gt;=、&lt;=也类似）：判断两个值是都相等或不相等，是则返回true，否则返回false</li>
