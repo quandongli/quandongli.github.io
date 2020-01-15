@@ -159,7 +159,7 @@
     <link href="https://quandongli.github.io/post/2f86de21.html"/>
     <id>https://quandongli.github.io/post/2f86de21.html</id>
     <published>2020-01-09T12:19:52.000Z</published>
-    <updated>2020-01-09T12:28:09.796Z</updated>
+    <updated>2020-01-15T12:20:01.953Z</updated>
     
     <content type="html"><![CDATA[<h2 id="java数据类型概述"><a href="#java数据类型概述" class="headerlink" title="java数据类型概述"></a>java数据类型概述</h2><p>在java语言中有四类八种基本类型分别是：</p><a id="more"></a><ol><li>整型：long、int、short、byte</li><li>浮点型：double、float</li><li>char</li><li>boolean（布尔类型）</li></ol><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><p>整型表示是没有小数部分的数值。在java中有定义了四种整型常量，他们表示范围从小到大分别是：</p><ul><li>长整型long：占8个字节</li><li>整型int：占4个字节</li><li>短整型short：占2个字节</li><li>byte：占1个字节</li></ul><table><thead><tr><th align="center">类型</th><th align="center">存储需求</th><th align="center">取值范围</th></tr></thead><tbody><tr><td align="center">long</td><td align="center">8字节</td><td align="center">-9223372036854775808 ~ 9223372036854775807</td></tr><tr><td align="center">short</td><td align="center">2字节</td><td align="center">-32768 ~ 32767</td></tr><tr><td align="center">byte</td><td align="center">1字节</td><td align="center">-128-127</td></tr></tbody></table><p>在java中整数类型与c语言中有几个不同点</p><ol><li>第一个不同点是，在Java语言中支持在为数值字面量加下划线，方便阅读，比如：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="number">1000_000_000</span>);<span class="comment">//将输出为1000000000</span></span><br></pre></td></tr></table></figure></li><li>Java中每个类型所占的字节大小不会随着运行系统的变化而变化。这主要要是为了满足Java的设计目标：一处编译、处处运行。</li><li>第二个不同点，也是重要的不同点是，在Java语言中不支持无符号（unsigned）类型的整型，在Java中如果要表示一个无符号类型的数字将会是一个比较麻烦的事情（一般是通过升级类型，比如将byte类型升级为int类型，将int类型转换为long类型或者通过位运算）。</li></ol><p><strong>关于unsigned类型在以后遇到再进行详细讨论</strong></p><h2 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h2><p>所谓的浮点类型就是可以表示小数部分的数值，在Java中有两种浮点类型：<br>|类型|存储需求|取值范围|<br>|:-:|:-:|:-:|<br>|float|4字节|大约为+-3.40282347E+38F(有效位数为6~7位)|<br>|double|8字节|大约1.79769313486231570E+308（有效位数为15位）|<br>double表示的这种数值精度是float类型的两倍，所以一般称float类型为单精度浮点类型，double类型为双精度浮点类型。一般情况下小数默认为double类型。可以在小数数值后面加上一个f或者F将该数值表示为float类型。double类型可以在小数数值后面添加d或者D表示（也可以不加，直接默认）。</p><h2 id="char类型"><a href="#char类型" class="headerlink" title="char类型"></a>char类型</h2><p>&emsp;&emsp;char类型表示的是一个在字符，占两个字节，其的字面量值是用一个单引号引起来的一个字符，如’a’，但是不能用单引号引两个或以上的字符，如：’ab’,如果需要引两个或以上的字符这需要用一对双引号，这样表示的将会是字符串。<br>&emsp;&emsp;在Java中char类型是一个采用UTF-16编码表示Unicode码点的代码单元，这样做的原因是不同的编码方案下可能对应着不同的字母，且有些字母短一个字节就可以表示，但是有写字节表示比较长需要两个字节或多个字节，于是java设计者为了避免这样的事情发生（Java的设计思想是不管程序在哪运行，运行的结果都要一样），在初期效果确实达到了，但是随着中国等国家的表意文字的出现，这种设计也随之崩溃。于是乎，这种设计使得Java中的char类型并不是一个“称职”的类型，比如在字符串的一些操作中很容易产生错误，所以现在都<strong>强烈建议不要在java中使用char类型</strong></p><h2 id="boolean类型"><a href="#boolean类型" class="headerlink" title="boolean类型"></a>boolean类型</h2><p>Boolean（布尔）类型只有两个值：false以及true，用来判断逻辑条件。这里需要注意的是在java中<strong>整形和布尔值之间不能进行相互交换</strong>，在c语言中false可以用0来表示，true可以用1来表示，但是在Java中却不可以这样表示。</p>]]></content>
     
@@ -170,7 +170,7 @@
     </summary>
     
     
-      <category term="-java" scheme="https://quandongli.github.io/categories/java/"/>
+      <category term="-Java" scheme="https://quandongli.github.io/categories/Java/"/>
     
     
       <category term="-Java -基础类型" scheme="https://quandongli.github.io/tags/Java-%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B/"/>
