@@ -7,18 +7,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://quandongli.github.io">
-  <title>Category: Java | 什么东东的博客</title>
+  <title>离散数学之命题的逻辑 | 什么东东的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="新生程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="什么东东的博客">
-<meta property="og:url" content="https://quandongli.github.io/categories/Java/index.html">
+  <meta name="description" content="本篇文章主要总结了来自《离散数学及其应用》的第一章第一小结的内容。主要包括：  命题的一些基本概念 逻辑运算符及其运算规则 比特运算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散数学之命题的逻辑">
+<meta property="og:url" content="https://quandongli.github.io/post/cddb6940.html">
 <meta property="og:site_name" content="什么东东的博客">
-<meta property="og:description" content="新生程序猿">
+<meta property="og:description" content="本篇文章主要总结了来自《离散数学及其应用》的第一章第一小结的内容。主要包括：  命题的一些基本概念 逻辑运算符及其运算规则 比特运算">
+<meta property="article:published_time" content="2020-01-17T05:21:12.000Z">
+<meta property="article:modified_time" content="2020-01-17T05:22:36.756Z">
 <meta property="article:author" content="CodeWhat">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="c">
+<meta property="article:tag" content="离散数学">
+<meta property="article:tag" content="命题的逻辑">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="什么东东的博客" type="application/atom+xml">
@@ -167,75 +168,334 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-离散数学之命题的逻辑" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/quandongli.github.io/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/2f86de21.html" class="archive-article-date">
-  	<time datetime="2020-01-09T12:19:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/2f86de21.html">Java基础之四种基础类型</a>
+    <h1 class="article-title" itemprop="name">
+      离散数学之命题的逻辑
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/quandongli.github.io/post/cddb6940.html" class="archive-article-date">
+  	<time datetime="2020-01-17T05:21:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本篇文章主要总结了来自《离散数学及其应用》的第一章第一小结的内容。主要包括：</p>
+<ul>
+<li>命题的一些基本概念</li>
+<li>逻辑运算符及其运算规则</li>
+<li>比特运算<a id="more"></a>
+<h2 id="命题的概念"><a href="#命题的概念" class="headerlink" title="命题的概念"></a>命题的概念</h2>命题就是就是一个陈述句，它或真（通常用T表示）或假（通常用F表示），但是不能又真又假。<blockquote>
+<p>例如：北京是中国的首都。是一个真命题<br>北京是中国的首都吗？就不是一个命题<br>当一个命题不能被再次分解为其他命题的组合时，则称这个命题为一个<strong>原子命题</strong>，如上例即为一个原子命题，由两个或以上的命题通过逻辑运算符组合而成的命题，称为<strong>复合命题</strong>。<br>北京时中国的首都，并且华盛顿时美国的首都。就不是一个原子命题。<br>一个原子命题通常用一个字母来表示。例如我们可以使用p来表示北京是中国的首都这个命题。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>逻辑运算符主要用来表示命题与命题直接的关系。</p>
+<ul>
+<li>否定运算符：表示与命题p相反恶的情况，记作：┑p<blockquote>
+<p>如上例的否定为：北京不是中国的否定</p>
+</blockquote>
+</li>
+</ul>
+<p>其真值表为：<br>|p|┑p|<br>|:-:|:-:|<br>|T|F|<br>|F|T|</p>
+<ul>
+<li>合取：表示两个命题都为真才为真的情况。记作p∧q。<blockquote>
+<p>在计算机中通常用与（&amp;）表示。符号可以看作时A没有中间一横。记作And</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>例如：北京是中国的首都，并且华盛顿是美国的首都。这是一个真命题</p>
+</blockquote>
+<p>其真值表为：<br>|p|q|p∧q|<br>|:-:|:-:|:-:|<br>|T|T|T|<br>|T|F|F|<br>|F|T|F|<br>|F|F|F|</p>
+<ul>
+<li>析取:表示两个命题中至少有一个为真的情况。记作p∨q<blockquote>
+<p>在计算机中用或（|）表示,</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>例如：北京是中国的首都，或者巴黎是美国的首都。这是一个真命题</p>
+</blockquote>
+<p>其真值表为：<br>|p|q|p∨q|<br>|:-:|:-:|:-:|<br>|T|T|T|<br>|T|F|T|<br>|F|T|T|<br>|F|F|F|</p>
+<ul>
+<li>异或：表示两个命题的真值不同才为真的情况，记作：记作p⊕q</li>
+</ul>
+<blockquote>
+<p>例如：我可以吃一碗面或者一碗饭。</p>
+</blockquote>
+<p>其真值表为：<br>|p|q|p⊕q|<br>|:-:|:-:|:-:|<br>|T|T|F|<br>|T|F|T|<br>|F|T|T|<br>|F|F|F|</p>
+<ul>
+<li>条件语句：表示p为真则q必为真。记作p→q。表示如果p，则q.p称为前提，q称为结论</li>
+</ul>
+<p>在现实的应用中，条件语句常有如下变换表达形式：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 如果p，则q</span><br><span class="line"><span class="number">2.</span> p蕴含q</span><br><span class="line"><span class="number">3.</span> p仅q</span><br><span class="line"><span class="number">4.</span> p是q的充分条件</span><br><span class="line"><span class="number">5.</span> q是p的必要条件</span><br></pre></td></tr></table></figure>
+<p>其真值表为：<br>|p|q|p→q|<br>|:-:|:-:|:-:|<br>|T|T|T|<br>|T|F|F|<br>|F|T|T|<br>|F|F|T|</p>
+<blockquote>
+<p>条件语句只规定了，当p为真时，q必须为真，否者整个命题就会时一个假命题；但是条件命题并没有规定，p为假时，q必须为什么状态。所以当p为假时，无论q为何值，真个命题都是一个真命题。</p>
+</blockquote>
+<p>条件语句还有三种衍生的命题：<br>1.逆命题：q→p称为p→q的逆命题<br>2.逆否命题：┑q→┑p称为p→q的逆否命题，与p→q由着相同的真值。<br>一个条件语句总是与它的逆否命题是等价的<br>3.反命题：┑p→┑q称为p→q的逆命题</p>
+<ul>
+<li>双条件语句：表示只有当p、q具有相同的真值是才为真。记作：p↔q<blockquote>
+<p>生活中常将这种逻辑翻译为p当且仅当q</p>
+</blockquote>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">p</th>
+<th align="center">q</th>
+<th align="center">p↔q</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">T</td>
+<td align="center">T</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">T</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center">T</td>
+</tr>
+</tbody></table>
+<h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><p>一个复合命题通常由几个命题通过逻辑运算符链接。为了更好的将一个复合命题转换为符号表示的命题，而不至于产生歧义，于是规定了逻辑符的优先级：<br>|运算符|优先级|<br>|:-:|:-:|<br>|┑|1|<br>|∧|2|<br>|∨|3|<br>|→|4|<br>|↔|5|</p>
+<p>例如：p→q∨r就相当于p→(q∨r)</p>
+<h2 id="比特运算"><a href="#比特运算" class="headerlink" title="比特运算"></a>比特运算</h2><p>比特运算即计算机中的位运算。一个比特相当一个二进制位，1代表真，0代表假。这种只能表示真和假两种状态的取值情况，在计算机中由称为布尔量。一个十进制的数可以转换为一连串的二进制位，称位比特串。将两个比特串之间进行逻辑运算（通常只支持合取、析取和异或的计算）称为比特运算。例如：<br>01 1011 0110<br>11 0001 1101<br>——————<br>11 1011 1111  按位OR<br>01 0001 0100  按位AND<br>10 1010 1011  按位XOR</p>
+<p><a href="https://mubu.com/doc/2LqraMt3Mw" target="_blank" rel="noopener">思维导图版笔记点击此处</a></p>
+
+      
+
+
+
+  <div class="declare">
+    <strong>本文作者：</strong>
+    
+      CodeWhat
+    
+    <br>
+    <strong>本文链接：</strong>
+    https://quandongli.github.io/post/cddb6940.html
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
+
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">离散数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础类型</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">命题的逻辑</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/Java//" class="article-tag-list-link color5">Java</a>
+        			<a href="/quandongli.github.io/categories/离散数学//" class="article-tag-list-link color5">离散数学</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://quandongli.github.io/post/cddb6940.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/quandongli.github.io/post/102131cd.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础之大数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#命题的概念"><span class="toc-number">1.</span> <span class="toc-text">命题的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑运算符"><span class="toc-number">2.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运算符的优先级"><span class="toc-number">3.</span> <span class="toc-text">运算符的优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#比特运算"><span class="toc-number">4.</span> <span class="toc-text">比特运算</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'b923cc9d75f5abe8d846',
+  	clientSecret: 'fe60ac1a03b171f8d597619739c8a3e2fc89ed74',
+  	repo: 'gitalk',
+  	owner: 'quandongli',
+  	admin: ['quandongli'],
+  	id: 'Fri Jan 17 2020 13:21:12 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
   
 
-    
+  
+
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -258,10 +518,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/quandongli.github.io/",
@@ -365,172 +625,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">命题的逻辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础类型</a>
-              </li>
-            
-            <div class="clearfix"></div>
-          </ul>
-        </div>
-        <ul class="search-ul">
-          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
-            3、在根目录_config.yml里添加配置：
-<pre style="font-size: 12px;" q-show="jsonFail">
-  jsonContent:
-    meta: false
-    pages: false
-    posts:
-      title: true
-      date: true
-      path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
-      comments: false
-      link: false
-      permalink: false
-      excerpt: false
-      categories: false
-      tags: true
-</pre>
-          </p>
-          <li class="search-li" q-repeat="items" q-show="isShow">
-            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
-            <p class="search-time">
-              <i class="icon-calendar icon"></i>
-              <span q-text="date|dateformat"></span>
-            </p>
-            <p class="search-tag">
-              <i class="icon-price-tags icon"></i>
-              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
-            </p>
-          </li>
-        </ul>
-    	</section>
-    
-
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
-
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
-  	  	
-    	</section>
-    
-  </div>
-  
-</div>
-    <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-  </div>
-</body>
-</html>ef="javascript:void(0)" class="js-tag color1">命题的逻辑</a>
               </li>
              
               <li class="article-tag-list-item">
