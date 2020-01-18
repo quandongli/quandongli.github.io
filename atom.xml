@@ -6,7 +6,7 @@
   <link href="/quandongli.github.io/atom.xml" rel="self"/>
   
   <link href="https://quandongli.github.io/"/>
-  <updated>2020-01-17T05:30:18.624Z</updated>
+  <updated>2020-01-18T05:30:19.312Z</updated>
   <id>https://quandongli.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>离散数学之第一节习题</title>
+    <link href="https://quandongli.github.io/post/3f639265.html"/>
+    <id>https://quandongli.github.io/post/3f639265.html</id>
+    <published>2020-01-18T05:26:24.000Z</published>
+    <updated>2020-01-18T05:30:19.312Z</updated>
+    
+    <content type="html"><![CDATA[<p>题目出处：《离散数学及其应用》p11页53题<br>题干：</p><blockquote><p>有一个含有100条语句的列表，其中第n条语句写的是“列表中恰好有n条语句为假”<br>a) 你能从这些语句中得出什么结论、<br>b) 如果第n条语句写的是“列表中至少有n条语句为假”，回答问题a<br>c) 假设这个列表包含99条语句，回答问题b</p></blockquote><h2 id="理解题意"><a href="#理解题意" class="headerlink" title="理解题意"></a>理解题意</h2><p>该题的题意如果用表格的形式进行展现，应该是如下的表格：</p><table><thead><tr><th align="center">题号</th><th align="center">内容</th></tr></thead><tbody><tr><td align="center">1</td><td align="center">列表中恰好(至少)有1条语句为假</td></tr><tr><td align="center">2</td><td align="center">列表中恰好(至少)有2条语句为假</td></tr><tr><td align="center">3</td><td align="center">列表中恰好(至少)有3条语句为假</td></tr><tr><td align="center">…</td><td align="center">…</td></tr><tr><td align="center">100</td><td align="center">列表中恰好(至少)有100条语句为假</td></tr></tbody></table><h2 id="解a题"><a href="#解a题" class="headerlink" title="解a题"></a>解a题</h2><p>首先假设第一条语句是真的情况，则在后面的语句中至少有一条语句是假的。现在假设第二条语句为假，则其他语句都是真的。但是第三条语句：列表中恰好有3条语句是假的。与第一条语句：表中恰好有1条语句是假的。发生了冲突。所以第一语句不可能是真的，换句话说第一条语句一定为假。</p><blockquote><p>从这个过程中，我们可以发现，这个问题的结论一定是只有某一条语句为真，其他语句都为假</p></blockquote><p>再来分析第二条语句：列表中恰好有2条语句是假的。假设这句话是真的，通过上面的分析知道，第一条语句一定是假的，所以另外一条为假的语句一定再第二条语句的后面，而且有且只有一条。同样假设第三条语句是真的。则于第二条语句发生了冲突，所以第二条语句也一定是假的。<br>通过再次的分析，我们可以发现，如果第n条语句是真的，则其前面的n-1条语句一定都是假的。其后面的语句中有且只有一条语句是假的。同时还需要保证第n条语句后面没有真语句。也就是说，这个为真的第n条语句后面只能由一条语句且这条语句为假。那么这个n也就只有了一个取值— 99.<br>所以问题的答案就是：<strong>只有第99条语句是真的，其他语句都是假的。</strong> </p><blockquote><p>这里也可以继续往下推演，一次假设第三条、第四条….语句是真的。也能够得到同样的答案。</p></blockquote><h2 id="解b题"><a href="#解b题" class="headerlink" title="解b题"></a>解b题</h2><p>对于这个问题，我们需要从后往前检验。<br>先检验第100条语句。假设第100语句是真的(也就是说：列表中至少有100语句是假的，这句话是真的)。但是列表中还剩下99条语句，也就是说列表中最多也就99条语句是假的，与假设矛盾了。所以第100语句一定是假的。<br>再检验的99条语句。假设第99条语句：列表中至少有99语句是假的。假设这句话是真的，则其他列表中其他的语句都是假的。对于第98条语句：列表中至少有98语句是假的。如果这句话是假的，那么这句话的否定：列表中假的语句小于98条，这句话是真的。但是这句第99条语句矛盾。所以第99条语句也是假的。</p><blockquote><p>从这段分析中可以发现，如果第n条语句是真的，那么n+1 ~ 100条语句都是假的，且1 ~ n条语句都是真的</p></blockquote><p>再检验第98条语句。同样假设这句话是真的。则前面的1~97条语句都应该是真的才对，这与假设矛盾。所以这句话是错的。<br>可以用同样的方法检测之后的语句。</p><p>现在检测第50条语句。假设这条语句是真的。通过上面的检测，可以知道51 ~ 100条语句，都是假的，也就是说现在已经有50条语句是假的了。无论第50条语句前有多少条语句是假的(这也不可能，因为后面已经都50条语句是假的了，则1 ~ 50条语句一定是真的)，第50条语句一定是真的。</p><p>所以本题答案为：<strong>1 ~ 50条语句都为真，51 ~ 100条语句都为假。</strong></p><h2 id="解C题"><a href="#解C题" class="headerlink" title="解C题"></a>解C题</h2><p>上体的结论同样适用于本题——<strong>如果第n条语句是真的，那么n+1~99条语句都是假的，且1 ~ n条语句都是真的</strong><br>直接来看第50条语句：列表中至少有50条语句是假的。假设这句话是真的，则说明其后面的49条语句都是假的，前面有还需要有一条语句是假的。假设这条语句是第49条语句。但是再49条语句后面至少有49条语句是假的，则这个命题又一定是真的。所以第50条语句为假。但是一旦第五十条语句也为真，那么列表中就有50条语句是假的了，这样第50条语句就是真的了。所以50条语句就真也不对，假也不对。这样这个命题就是一个悖论。不是一个命题。<br>所以本题答案为：<strong>这不是一个命题。</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;题目出处：《离散数学及其应用》p11页53题&lt;br&gt;题干：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有一个含有100条语句的列表，其中第n条语句写的是“列表中恰好有n条语句为假”&lt;br&gt;a) 你能从这些语句中得出什么结论、&lt;br&gt;b) 如果第n条语句写的是“列表中至少有n条
+      
+    
+    </summary>
+    
+    
+      <category term="离散数学" scheme="https://quandongli.github.io/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="离散数学" scheme="https://quandongli.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="命题的逻辑" scheme="https://quandongli.github.io/tags/%E5%91%BD%E9%A2%98%E7%9A%84%E9%80%BB%E8%BE%91/"/>
+    
+      <category term="离散数学练习" scheme="https://quandongli.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>离散数学之命题的逻辑</title>
