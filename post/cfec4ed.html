@@ -15,15 +15,15 @@
 <meta property="og:url" content="https://quandongli.github.io/post/cfec4ed.html">
 <meta property="og:site_name" content="什么东东的博客">
 <meta property="og:description" content="本文将通过介绍使用类的步骤对类的相关知识进行总结。  文中提出的步骤并不一定是实际操作中的顺序或者必要的步骤，只是为了更好的总结而为之">
-<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/undefined/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%86%85%E5%AD%98.png">
+<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/cfec4ed/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%86%85%E5%AD%98.png">
 <meta property="article:published_time" content="2020-01-21T13:37:10.000Z">
-<meta property="article:modified_time" content="2020-01-21T13:40:38.807Z">
+<meta property="article:modified_time" content="2020-01-21T13:40:49.084Z">
 <meta property="article:author" content="CodeWhat">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="面向对象">
 <meta property="article:tag" content="类">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://quandongli.github.io/quandongli.github.io/post/undefined/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%86%85%E5%AD%98.png">
+<meta name="twitter:image" content="https://quandongli.github.io/quandongli.github.io/post/cfec4ed/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%86%85%E5%AD%98.png">
   
     <link rel="alternative" href="/atom.xml" title="什么东东的博客" type="application/atom+xml">
   
@@ -348,7 +348,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		text name1 = <span class="keyword">new</span> text();</span><br><span class="line">		text name2 = <span class="keyword">new</span> text();</span><br><span class="line">		System.out.println(<span class="string">"name1中s为："</span>+name1.name(<span class="string">"first"</span>));<span class="comment">//将会输出first</span></span><br><span class="line">		System.out.println(<span class="string">"name2中s为："</span>+name2.s);<span class="comment">//虽然name2对象中的s值没有设置，但是它与那么共享，将会输出first</span></span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"name2中s为："</span>+name2.name(<span class="string">"next"</span>));<span class="comment">//将会输出next</span></span><br><span class="line">		System.out.println(<span class="string">"name1中s为："</span>+name1.s);<span class="comment">//由于s的值已经通过name2修改，所以name1中的s值为：next</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <p>其在内存中的示意图，可以简略的用以下方式表示：</p>
-<img src="/quandongli.github.io/post/undefined/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%86%85%E5%AD%98.png" class title="静态方法内存示意图">
+<img src="/quandongli.github.io/post/cfec4ed/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%86%85%E5%AD%98.png" class title="静态方法内存示意图">
 <ul>
 <li>静态方法可以不使用对象，而直接调用。也就是没有隐式参数<br>如：Math.pow()</li>
 </ul>
@@ -537,6 +537,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/quandongli.github.io/post/ca1e56df.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          eclipse常用快捷键
+        
+      </div>
+    </a>
   
   
     <a href="/quandongli.github.io/post/3f639265.html" id="article-nav-older" class="article-nav-link-wrap">
@@ -750,6 +759,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
               </li>
             
             <div class="clearfix"></div>
