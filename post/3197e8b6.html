@@ -15,11 +15,15 @@
 <meta property="og:url" content="https://quandongli.github.io/post/3197e8b6.html">
 <meta property="og:site_name" content="什么东东的博客">
 <meta property="og:description" content="这篇文章主要是对Java语言面向对象的三大特性中的继承性进行总结，主要包括：  什么是继承性及其好处 继承性的实现与使用 方法的重写 super关键字">
+<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/3197e8b6/%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF2.png">
+<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/3197e8b6/%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF.png">
+<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/3197e8b6/%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF.png">
 <meta property="article:published_time" content="2020-01-31T11:21:58.000Z">
-<meta property="article:modified_time" content="2020-01-31T11:26:50.983Z">
+<meta property="article:modified_time" content="2020-01-31T11:36:33.847Z">
 <meta property="article:author" content="CodeWhat">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://quandongli.github.io/quandongli.github.io/post/3197e8b6/%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF2.png">
   
     <link rel="alternative" href="/atom.xml" title="什么东东的博客" type="application/atom+xml">
   
@@ -212,17 +216,17 @@
 <ul>
 <li>一个类可以被多个子类继承</li>
 </ul>
-
+<img src="/quandongli.github.io/post/3197e8b6/%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF2.png" class title="多次继承">
 
 <ul>
 <li>一个类只能由一个父类，称为单继承</li>
 </ul>
-
+<img src="/quandongli.github.io/post/3197e8b6/%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF.png" class title="多重继承">
 
 <ul>
 <li>类可以被多层继承，子类直接继承的父类，称为直接父类，间接继承的父类称为间接父类。子类继承父类以后，就获取了直接父类以及所有间接父类中的属性和方法。</li>
 </ul>
-
+<img src="/quandongli.github.io/post/3197e8b6/%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF.png" class title="多层继承">
 
 <h2 id="方法的重写"><a href="#方法的重写" class="headerlink" title="方法的重写"></a>方法的重写</h2><p>显然如果一个子类继承了父类的方法，父类的方法也不能百分百的满足子类的需求，这时候就需要对父类中相应的方法进行改造，这样，程序执行时，子类的方法将覆盖父类的方法。<br>子类重写方法的声明格式如下：</p>
 <blockquote>
@@ -262,6 +266,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明了一个animal类作为父类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">animal</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">animal</span><span class="params">(<span class="keyword">int</span> age, String name)</span> </span>&#123;<span class="comment">//一个有参构造器，用于初始化age、name属性</span></span><br><span class="line">		<span class="keyword">this</span>.age = age;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;<span class="comment">//展示自己的属性</span></span><br><span class="line">		System.out.println(<span class="string">"我的名字是："</span> + name);</span><br><span class="line">		System.out.println(<span class="string">"我的年龄是："</span> + age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建了animal的子类dog</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">dog</span> <span class="keyword">extends</span> <span class="title">animal</span> </span>&#123;</span><br><span class="line">	String cry;<span class="comment">//增加了一个cry的属性，用于表示它的叫声</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">dog</span> <span class="params">(<span class="keyword">int</span> age,String name,String cry)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">super</span>(age,name);<span class="comment">//这里通过super对age和name属性进行初始化，也可以使用super.age =age进行初始化，不过这样，在animal类中需要有一个空参构造器</span></span><br><span class="line">		<span class="keyword">this</span>.cry = cry;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;<span class="comment">//对display方法进行了从写</span></span><br><span class="line">		System.out.println(<span class="string">"我的名字是："</span> + name);<span class="comment">//这里的name属性没有写super，是因为name属性在dog类中没有，编译器将在它的父类中寻找</span></span><br><span class="line">		System.out.println(<span class="string">"我的年龄是："</span> + age);</span><br><span class="line">		System.out.println(<span class="string">"我的叫声是："</span> + cry);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		dog Dog = <span class="keyword">new</span> dog(<span class="number">12</span>,<span class="string">"jone"</span>,<span class="string">"汪！汪！"</span>);<span class="comment">//这里的构造器必须使用dog类的构造器，而不能使用animal类中的构造器。因为这里实例化的是一个dog类</span></span><br><span class="line">		Dog.display();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">/*将会显示：</span></span><br><span class="line"><span class="comment">我的名字是：jone</span></span><br><span class="line"><span class="comment">我的年龄是：12</span></span><br><span class="line"><span class="comment">我的叫声是：汪！汪！</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://mubu.com/doc/2I_YOgyeCw" target="_blank" rel="noopener">思维导图版笔记点此处</a></p>
+
       
 
 
