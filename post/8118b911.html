@@ -7,16 +7,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://quandongli.github.io">
-  <title>java基础之abstract的使用 | 什么东东的博客</title>
+  <title>Java基础之接口 | 什么东东的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="abstract关键里用来声明抽象类和抽象方法，本文主要对相关知识做一些总结">
+  <meta name="description" content="本问将会对Java中接口的相关知识进行总结，主要包括：  什么是接口 怎么定义接口 接口与类的联系与区别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java基础之abstract的使用">
-<meta property="og:url" content="https://quandongli.github.io/post/d70ea8f9.html">
+<meta property="og:title" content="Java基础之接口">
+<meta property="og:url" content="https://quandongli.github.io/post/8118b911.html">
 <meta property="og:site_name" content="什么东东的博客">
-<meta property="og:description" content="abstract关键里用来声明抽象类和抽象方法，本文主要对相关知识做一些总结">
-<meta property="article:published_time" content="2020-02-11T08:47:03.000Z">
-<meta property="article:modified_time" content="2020-02-11T12:03:09.599Z">
+<meta property="og:description" content="本问将会对Java中接口的相关知识进行总结，主要包括：  什么是接口 怎么定义接口 接口与类的联系与区别">
+<meta property="article:published_time" content="2020-02-12T13:17:36.000Z">
+<meta property="article:modified_time" content="2020-02-12T13:18:52.979Z">
 <meta property="article:author" content="CodeWhat">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -167,61 +167,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java基础之abstract的使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java基础之接口" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      java基础之abstract的使用
+      Java基础之接口
     </h1>
   
 
         
-        <a href="/quandongli.github.io/post/d70ea8f9.html" class="archive-article-date">
-  	<time datetime="2020-02-11T08:47:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
+        <a href="/quandongli.github.io/post/8118b911.html" class="archive-article-date">
+  	<time datetime="2020-02-12T13:17:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>abstract关键里用来声明抽象类和抽象方法，本文主要对相关知识做一些总结</p>
+        <p>本问将会对Java中接口的相关知识进行总结，主要包括：</p>
+<ul>
+<li>什么是接口</li>
+<li>怎么定义接口</li>
+<li>接口与类的联系与区别</li>
+</ul>
 <a id="more"></a>
-<h2 id="什么是抽象类"><a href="#什么是抽象类" class="headerlink" title="什么是抽象类"></a>什么是抽象类</h2><p>通过类的继承性可以知道，随着类被一层一层的继承，类也变得越来越具体。而类的设计应该保证父类和子类由一些能够共享的属性或方法。有时候就需要将父类设计得非常抽象，以至于它没有具体的实例，这样的类就叫做<strong>抽象类</strong><br>比如设计一个描述人的父类people，每一个人都需要有自己职业、技能等等，且再每个子类再继承是都要对这些内容进行重写，父类自定义的方法子类中都要进行重写。这时people类更像是其他子类的一个模板，这是就可以将people类声明为一个抽象类，然后让子类去具体化。</p>
-<h2 id="抽象类的使用"><a href="#抽象类的使用" class="headerlink" title="抽象类的使用"></a>抽象类的使用</h2><p>Java语言中使用abstract来定义一个抽象类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"人吃饭"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">walk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"人走路"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"my name is :"</span>+name);</span><br><span class="line">		System.out.println(<span class="string">"my age is :"</span>+ age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上就创建了一个Person的抽象类，但是如果写如下语句：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person p1 = <span class="keyword">new</span> Person();<span class="comment">//Cannot instantiate the type Person</span></span><br></pre></td></tr></table></figure>
-<p>将会报错，这说明<strong>匿名类是不可以被实例化的</strong>，也就是说抽象类中虽然提供了构造器，但是不能直接实例化一个抽象类。抽象类的使用需要借助其一个一般子类(非抽象)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(name,age);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.display();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Student类中提供了一个空参构造器和一个调用了其父类构造器的一个有参构造器，这说明抽象类中的构造器可以被其子类调用，也就是说抽象类可以通过实例化。<br>此外Student类中还重写了Person类中的display方法，这里直接调用的是Person类中的display方法，这说明其<strong>抽象类中的方法和属性同样可以被子类继承</strong>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Student stu = <span class="keyword">new</span> Student(<span class="string">"jone"</span>,<span class="number">22</span>);</span><br><span class="line">stu.display();</span><br><span class="line">stu.eat();</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">my name is :jone</span></span><br><span class="line"><span class="comment">my age is :22</span></span><br><span class="line"><span class="comment">人吃饭</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h2 id="什么是接口"><a href="#什么是接口" class="headerlink" title="什么是接口"></a>什么是接口</h2><p>在总结Java中类的相关知识时讲到，无论是普通的类还是抽象类都不支持多继承，即一个子类只能有一个父类，但是有些时候必须重几个类中派生出一个子类，继承他们所有的属性和方法。使用接口(interface)就可以实现多继承的效果。<br>所谓的接口其实就是一种规范，定义的是一组规则，比如再使用usb传输数据时，电脑就需要安装相应的驱动才能进行数据传输。这体现时的现实生活中”如果要…就必须…”的思想。继承时一个”是不是”的关系，而接口实现的就是”能不能”的关系。<br>接口的本质时一种契约、规范、标准。使用了一个接口就必须遵从它的规范。<br>在Java中接口与类是并列的两个结构，即一个东西不能同时是同class关键字和interface关键字修饰。</p>
+<h2 id="定义接口"><a href="#定义接口" class="headerlink" title="定义接口"></a>定义接口</h2><p>一个接口可以由以下部分组成</p>
+<ul>
+<li>全局常量</li>
+<li>抽象方法</li>
+<li>静态方法</li>
+<li>默认方法</li>
+</ul>
+<blockquote>
+<p>注意：接口中没有构造器，以意味着接口是不可以实例化的！</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Flyable</span> </span>&#123;</span><br><span class="line">    <span class="comment">//全局常量</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_SPEED = <span class="number">7900</span>;</span><br><span class="line">	<span class="keyword">int</span> MIN_SPEED = <span class="number">1</span>;</span><br><span class="line">	<span class="comment">//抽象方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">//静态方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Feel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Too Fast!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//默认方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">How</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我用翅膀飞"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//public Flyable() &#123;&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在接口中每一个属性都会被定义为一个常量，所以在public static final是可以省略的。(只能是public static final,其他修饰符会报错)</li>
+<li>接口中每一个方法也是隐式抽象的,接口中的方法会被隐式的指定为 public abstract（只能是 public abstract，其他修饰符都会报错）。</li>
+<li>接口中的静态方法和全局常量是可以通过接口进行调用的</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Flyable.MAX_SPEED);</span><br><span class="line">Flyable.Feel();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接口中的默认方法是可以在实现类中进行调用，但是不可以直接通过接口调用，且默认方法可以在实现类中进行重写，之后执行的就会使重写之后的方法。</li>
+<li>如果实现了多个接口，而多个接口中定义了同名同参数的默认方法，在实现类没有重写此方法的情况下，会报错</li>
+<li>如果子类继承父类和实现的接口中声明了同名同参数的方法，子类在没有重写的情况下，默认调用的是父类中的同名同参数的方法。这称为类优先原则</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Traffic</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;<span class="comment">//这里由一个与Flyable方法中同名同参的方法stop</span></span><br><span class="line">		System.out.println(<span class="string">"引擎熄火"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Plane</span> <span class="keyword">extends</span> <span class="title">Traffic</span> <span class="keyword">implements</span> <span class="title">Flyable</span></span>&#123;</span><br><span class="line"><span class="comment">//实现类继承了Traffic类，实现的是Flyable方法</span></span><br><span class="line"><span class="comment">//且实现类中可以重写stop方法，默认执行的将会之Traffic类中的stop方法</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		How();</span><br><span class="line">		System.out.println(<span class="string">"飞机起飞"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plane plane = <span class="keyword">new</span> Plane();</span><br><span class="line">plane.stop();<span class="comment">//引擎熄火</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>一个实现类可以同时实现多个接口，不同的接口之间用逗号隔开</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AA</span> <span class="keyword">implements</span> <span class="title">CC</span>, <span class="title">DD</span> </span>&#123;</span><br><span class="line">	需要实现CC和DD接口中所有的方法</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="接口的继承"><a href="#接口的继承" class="headerlink" title="接口的继承"></a>接口的继承</h2><p>接口同样是可以被继承的，且支持多继承</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">AA</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">BB</span> <span class="keyword">extends</span> <span class="title">AA</span></span>&#123;<span class="comment">//BB接口继承了AA接口</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">CC</span> <span class="keyword">extends</span> <span class="title">BB</span>,<span class="title">AA</span></span>&#123;<span class="comment">//CC接口继承了AA和BB接口接口</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果此时对CC接口进行实现的话，需要对实现三个抽象方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DD</span> <span class="keyword">implements</span> <span class="title">CC</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类与接口"><a href="#类与接口" class="headerlink" title="类与接口"></a>类与接口</h2><p>此外类与接口之间还有以下的区别<br>首先从他们的关系来看：</p>
+<ul>
+<li>类与类之间: 继承关系,一个类只能直接继承一个父类,但是不支持多重继承</li>
+<li>类与接口之间: 只有实现关系,一个类可以实现多个接口</li>
+<li>接口与接口之间: 只有继承关系,一个接口可以继承多个接口</li>
+<li>如果实现类覆盖接口中所有抽象方法，则此类就可以实例化</li>
+<li>如果实现类没有覆盖接口中所有抽象方法，则此类需为抽象类</li>
+</ul>
+<p>此外还有</p>
+<ul>
+<li>组成部分来看，类可有构造器、属性、方法等，但是结构只有全局常量和抽象方法。</li>
+<li>类是可以实例化的，只是抽象类不可以直接实例化，但是接口是不可以实例化的。</li>
+</ul>
+<br>
+<br>
 
-<h2 id="抽象方法"><a href="#抽象方法" class="headerlink" title="抽象方法"></a>抽象方法</h2><p>虽然上面Person类没有语法问题，但是上面的写法并不能显示出抽象类的设计目的。一般抽象类除了会提供一些具体的方法之外，还会提供提供一些抽象方法，以告诉子类，哪些内容是你必须要有的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">walk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"人走路"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里就定义了两个抽象方法（eat和display方法）,他们都没有具体的方法体只有一个方法的声明，这是如果直接通过子类调用这个方法，虽然编译不会报错，但是运行时会报错。</p>
-<blockquote>
-<p>实际上子类也会同时报错</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Student stu = <span class="keyword">new</span> Student(<span class="string">"jone"</span>,<span class="number">22</span>);</span><br><span class="line">stu.eat();</span><br></pre></td></tr></table></figure>
-<p>这是我们可以在子类中对这两个方法进行重写，就不会报错</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(name,age);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"my name is :"</span>+name);</span><br><span class="line">		System.out.println(<span class="string">"my age is :"</span>+ age);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我爱吃辣条"</span>);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是<strong>如果子类中没有对父类中的抽象方法全部进行重写，或者子类中也存在抽象方法，则这个子类就必须时抽象列才可以。</strong></p>
-<h2 id="使用abstract的其他注意点"><a href="#使用abstract的其他注意点" class="headerlink" title="使用abstract的其他注意点"></a>使用abstract的其他注意点</h2><ol>
-<li>abstract方法不能用来修饰属性、构造器等结构</li>
-</ol>
-<blockquote>
-<p>抽象就意味着形态的不确定，显然是不能构造一个形态不确定的对象的</p>
-</blockquote>
-<ol start="2">
-<li>abstract不能用来修饰私有方法、静态方法、final的方法和类</li>
-</ol>
-<blockquote>
-<p>因为私有方法是不能被子类调用的，这样子类就不知道就不知道父类中有几个抽象方法了。静态方法是随着类的加载而加载的，但是加载时却没有不知道要做什么，这显然会出毛病。final意味着最终的，而抽象方法和类还没“开始”呢！</p>
-</blockquote>
-<p><a href="https://mubu.com/doc/20IDBfxg4w" target="_blank" rel="noopener">幕布版思维导图</a></p>
+<p><a href="https://mubu.com/doc/3E9MQHsHcw" target="_blank" rel="noopener">幕布版思维导图</a></p>
 
       
 
@@ -234,7 +256,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    https://quandongli.github.io/post/d70ea8f9.html
+    https://quandongli.github.io/post/8118b911.html
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -355,7 +377,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://quandongli.github.io/post/d70ea8f9.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://quandongli.github.io/post/8118b911.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -369,18 +391,9 @@
   
 <nav id="article-nav">
   
-    <a href="/quandongli.github.io/post/8118b911.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java基础之接口
-        
-      </div>
-    </a>
   
-  
-    <a href="/quandongli.github.io/post/9742ed3b.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java基础之Object类的使用</div>
+    <a href="/quandongli.github.io/post/d70ea8f9.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java基础之abstract的使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -398,7 +411,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是抽象类"><span class="toc-number">1.</span> <span class="toc-text">什么是抽象类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象类的使用"><span class="toc-number">2.</span> <span class="toc-text">抽象类的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象方法"><span class="toc-number">3.</span> <span class="toc-text">抽象方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用abstract的其他注意点"><span class="toc-number">4.</span> <span class="toc-text">使用abstract的其他注意点</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是接口"><span class="toc-number">1.</span> <span class="toc-text">什么是接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义接口"><span class="toc-number">2.</span> <span class="toc-text">定义接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#接口的继承"><span class="toc-number">3.</span> <span class="toc-text">接口的继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类与接口"><span class="toc-number">4.</span> <span class="toc-text">类与接口</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -424,7 +437,7 @@ if(true){
   	repo: 'gitalk',
   	owner: 'quandongli',
   	admin: ['quandongli'],
-  	id: 'Tue Feb 11 2020 16:47:03 GMT+0800',
+  	id: 'Wed Feb 12 2020 21:17:36 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
