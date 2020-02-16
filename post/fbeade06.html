@@ -7,19 +7,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://quandongli.github.io">
-  <title>Tag: java | 什么东东的博客</title>
+  <title>Java基础之异常 | 什么东东的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="新生程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="什么东东的博客">
-<meta property="og:url" content="https://quandongli.github.io/tags/java/index.html">
+  <meta name="description" content="本篇文章将会对Java中关于异常的相关知识进行总结，主要包括以下内容：  什么是异常 异常处理的两种方式 手动抛出异常 如何自定义异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础之异常">
+<meta property="og:url" content="https://quandongli.github.io/post/fbeade06.html">
 <meta property="og:site_name" content="什么东东的博客">
-<meta property="og:description" content="新生程序猿">
+<meta property="og:description" content="本篇文章将会对Java中关于异常的相关知识进行总结，主要包括以下内容：  什么是异常 异常处理的两种方式 手动抛出异常 如何自定义异常">
+<meta property="og:image" content="https://quandongli.github.io/quandongli.github.io/post/undefined/%E5%BC%82%E5%B8%B8.png">
+<meta property="article:published_time" content="2020-02-16T12:51:28.000Z">
+<meta property="article:modified_time" content="2020-02-16T12:54:07.361Z">
 <meta property="article:author" content="CodeWhat">
-<meta property="article:tag" content="python">
 <meta property="article:tag" content="java">
-<meta property="article:tag" content="c">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://quandongli.github.io/quandongli.github.io/post/undefined/%E5%BC%82%E5%B8%B8.png">
   
     <link rel="alternative" href="/atom.xml" title="什么东东的博客" type="application/atom+xml">
   
@@ -167,36 +169,162 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Java基础之异常" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Java基础之异常
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/quandongli.github.io/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/fbeade06.html" class="archive-article-date">
+
+        
+        <a href="/quandongli.github.io/post/fbeade06.html" class="archive-article-date">
   	<time datetime="2020-02-16T12:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/fbeade06.html">Java基础之异常</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本篇文章将会对Java中关于异常的相关知识进行总结，主要包括以下内容：</p>
+<ul>
+<li>什么是异常</li>
+<li>异常处理的两种方式</li>
+<li>手动抛出异常</li>
+<li>如何自定义异常</li>
+</ul>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h2 id="什么是异常"><a href="#什么是异常" class="headerlink" title="什么是异常"></a>什么是异常</h2><p>在一个软件的使用过程中，有许多不确定的因素会导致程序出现问题，例如：程序需要用户输入一个数字，但是用户可能会输入一个字符；程序需要打开一个文件，但是确不能确保文件存在。这些不确定因素导致的程序出现问题的错误，就称之为异常。<br>通常情况下，一个在设计一个程序是，需要考虑到以下的问题：</p>
+<ul>
+<li>用户输入。虽然在程序设计时会明确的告诉用户输入什么内容，但是也一定会有用户会输入错误的格式。</li>
+<li>设备错误。硬件可能会由于各种原因导致无法正常被使用，例如打印机在打印时没纸了。</li>
+<li>物理限制。例如用户的电脑磁盘空间已满。</li>
+<li>代码错误。程序方式是否可能会出现错误。例如一个方法可能返回一个错误的答案，无效的数组索引等。<br>异常不是一定会发生的，而是可能会发生的。<br>Java中所有的异常都派生于Throwable类，在其下一层又分为两类异常，：</li>
+<li>Error：Java虚拟机无法解决的严重问题，如StackOverflowError，无法通过编写针对性的代码处理。</li>
+<li>Exception：其他因编程错误或偶然外因导致的一般性错误。可以使用针对性的代码进行处理。</li>
+</ul>
+<p>在实际编程中，我们主要时对Exception异常做出处理。在Exception异常中又可以笼统的非为受检异常和非受检异常：</p>
+<ul>
+<li>受检异常：这类异常是由一些外部的偶然因素所引起的，所以这类异常通常需要进行进行处理，例如IOException。</li>
+<li>非受检异常(运行时异常)：这类异常是编程人员的逻辑问题。属于程序设计上的错误，例如IndexOutOfBoundsException（下标越界错误），这些错误是程序员在设计时就需要考虑到的错误。Java编译器不进行强制要求处理，即在编译时不会报错，但是运行时会。</li>
+</ul>
+<img src="/quandongli.github.io/post/undefined/%E5%BC%82%E5%B8%B8.png" class title="异常分类">
+
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>Java中异常处理可以分为两个过程：</p>
+<h3 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h3><p>过程一：抛出异常(Throws)，方法在正常执行的过程中，一旦出现异常，就会在异常代码出生成一个对应异常类的对象，并将此对象抛出。异常可以被一层一层的抛，一直抛到main方法。一旦抛出异常以后，其后的代码就不再执行。且一个方法可以允许抛出多个异常，但是每次自会抛出一个异常。<br>子类重写的方法抛出异常类型不大于父类被重写的方法抛出的异常，如果父类没有抛出异常，则子类重写的方法也不能抛出异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionTest3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			method2();</span><br><span class="line">		&#125;<span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">		method1();</span><br><span class="line">	&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> <span class="keyword">throws</span> FileNotFoundException,IOException</span>&#123;</span><br><span class="line">	File file= <span class="keyword">new</span> File(<span class="string">"hello. txt"</span>);</span><br><span class="line">	FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">	<span class="keyword">int</span> data = fis.read();</span><br><span class="line">	<span class="keyword">while</span>(data!=-<span class="number">1</span>)&#123;</span><br><span class="line">	System. out. print((<span class="keyword">char</span>)data);</span><br><span class="line">	data =fis.read();</span><br><span class="line">		&#125;	</span><br><span class="line">	fis.close();</span><br><span class="line">	System.out.println(<span class="string">"hello"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的代码中method1方法可能会抛出FileNotFoundException或者IOException异常（FileNotFoundException是IOException的一个子类），抛出的异常将会传给method2方法，然后method2方法再抛出一个IOException方法，最后method3方法对这个异常进行了捕获和处理。</p>
+</blockquote>
+<p>子类重写的方法抛出异常类型不大于父类被重写的方法抛出的异常，如果父类没有抛出异常，则子类重写的方法也不能抛出异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> <span class="keyword">throws</span> FileNotFoundException</span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h3><p>捕获异常的代码格式大致如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;可能出现异常的代码</span><br><span class="line">&#125;<span class="keyword">catch</span>(异常类型<span class="number">1</span>，变量名<span class="number">1</span>)&#123;异常处理方式&#125;....</span><br><span class="line"><span class="keyword">catch</span>(异常类型n，变量名n)&#123;异常处理方式</span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;一定会执行的代码&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其语法的意思是：</p>
+<ul>
+<li>使用try将可能出现异常代码包装起来，一旦出现异常，就会生成一个对应异常类的对象，根据此对象的类型，去catch中进行匹配</li>
+<li>一旦try中的异常对象匹配到某一个 catch时，就进入 catch中进行异常的处理。一旦处理完成,就跳出当前的try-catch结构(在没有写finally的前提下)，继续执行其后的代码</li>
+</ul>
+<p>需要注意的是：catch中的异常类型如果有子父类关系，则要求子类一定要声明在父类的上面，否则报错。在try结构中声明的变量，在try结构之外将不能够调用.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		String str = <span class="string">"123"</span>;</span><br><span class="line">		str = <span class="string">"abc"</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">int</span> num = Integer.parseInt(str);</span><br><span class="line">			System.out.println(<span class="string">"hello1"</span>);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(NumberFormatException e) &#123;</span><br><span class="line">			System.out.println(e.getMessage());</span><br><span class="line">			<span class="comment">//printStackTrace();</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span>(NullPointerException n) &#123;<span class="comment">//NumberFormatException同类型异常</span></span><br><span class="line">			System.out.println(<span class="string">"出现空指针异常"</span>);</span><br><span class="line">		&#125;<span class="keyword">catch</span> (Exception e) &#123;<span class="comment">//父类</span></span><br><span class="line">			System.out.println(<span class="string">"出现异常"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"hello2"</span>);</span><br><span class="line">	  &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里有两个常用的异常对象处理方式:String getMessage():打印异常信息.<br>printStackTrace()：打印整个堆栈的信息</p>
+</blockquote>
+<p>try - catch-finally结构式可以嵌套使用的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		File file = <span class="keyword">new</span> File(<span class="string">"hello.txt"</span>);</span><br><span class="line">		fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">		<span class="keyword">int</span> data = fis.read();</span><br><span class="line">		<span class="keyword">while</span>(data != -<span class="number">1</span>) &#123;</span><br><span class="line">			System.out.print((<span class="keyword">char</span>)data);</span><br><span class="line">			data = fis.read();</span><br><span class="line">		&#125;			</span><br><span class="line">	&#125;<span class="keyword">catch</span>(FileNotFoundException e) &#123;</span><br><span class="line">		System.out.println(e.getMessage());</span><br><span class="line">	&#125;<span class="keyword">catch</span>(IOException n) &#123;</span><br><span class="line">		n.printStackTrace();</span><br><span class="line">	&#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">if</span>(fis != <span class="keyword">null</span>)</span><br><span class="line">				fis.close();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于finally来说,是一个可选一个环节,finally中声明的是一定会被执行的代码。即使 catch中又出现异常了，try中有 return语句， catch中有return语句等情况,像数据库连接、输入输出流、网络編程 Socket等资源，JWM是不能自动的回收的，我们需要自己手动的进行资源的释放。此时的资源释放，就需要声明在finally中.例如上面的实例程序中就将关闭文章的代码放在了finally结构中,确保如果文件以打开,但是发生了异常,该文件能够被关闭.</p>
+<h2 id="手动抛出异常"><a href="#手动抛出异常" class="headerlink" title="手动抛出异常"></a>手动抛出异常</h2><p>以上的方式都是系统自东生成的异常，只有再系统规定的情况下才会抛出。但是有些时候我们希望再不满足我们自己设计的要求是也会报错，比如我们需要用户输入一个正数时，用户输入负数的时候我们就希望能够出现一个异常。<br>这是我们就希望能够自己设定一个条件，再满足这个条件时抛出一个指定的异常。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Student s = <span class="keyword">new</span> Student();</span><br><span class="line">		s.regist(-<span class="number">1001</span>);</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		System.out.println(e.getMessage());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">regist</span><span class="params">(<span class="keyword">int</span> id)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(id &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">this</span>.id=id;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">//throw new RuntimeException("您输入的数据非法!");//这个是抛出运行时异常，不会强制要求处理</span></span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"您输入的数据非法!"</span>);<span class="comment">//这个异常必须做出处理</span></span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的示例中，就通过throw手动的创建了一个异常对象，当用户输入负数时会抛出，然后在方法的调用出将会得到处理。</p>
+<blockquote>
+<p>throws体现的异常的处理，将会抛出一个异常，用于方法的声明处。<br>throw是生成一个异常对象，是在方法内。</p>
+</blockquote>
+<h2 id="自定义异常类"><a href="#自定义异常类" class="headerlink" title="自定义异常类"></a>自定义异常类</h2><p>手动抛出一个异常，依然只能抛处一个系统已经定义了的异常类型，有时候我们更希望能够自己定义一个异常类型，来更好的说明自己当前项目中可能出现的异常。</p>
+<p>自定义异常类中通常会包含三个部分：</p>
+<ul>
+<li>继承于现有的异常结构：RuntimeException、Exception</li>
+<li>提供全局常量：serialVersionUID，用于位于标识这个类</li>
+<li>提供重载的构造器，一个无参构造器，和一个包含详细描述异常信息的构造器</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyException</span> <span class="keyword">extends</span> <span class="title">RuntimeException</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID =  -<span class="number">7034897190745766939L</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyException</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyException</span><span class="params">(String msg)</span></span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(msg);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该例中就创建了一个继承于RuntimeException类的异常类，该类中有一个erialVersionUID常量，用于作为该类的唯一标识，以及一个无参构造器，和一个有参构造器，该构造器又调用了其父类的构造器。</p>
+<p>下面使用以下这个构造器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Student s = <span class="keyword">new</span> Student();</span><br><span class="line">		s.regist(-<span class="number">1001</span>);</span><br><span class="line">		System.out.println(s);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (MyException e) &#123;</span><br><span class="line">		System.out.println(e.getMessage());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">regist</span><span class="params">(<span class="keyword">int</span> id)</span> <span class="keyword">throws</span> MyException </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(id &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">this</span>.id=id;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> MyException(<span class="string">"您输入的数据非法!"</span>);	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里就是使用了自定义的异常类。</p>
+<br>
+<br>
+
+<p> <a href="https://mubu.com/doc/1r9hWisxDA" target="_blank" rel="noopener">幕布版思维导图</a></p>
+
+      
+
+
+
+  <div class="declare">
+    <strong>本文作者：</strong>
+    
+      CodeWhat
+    
+    <br>
+    <strong>本文链接：</strong>
+    https://quandongli.github.io/post/fbeade06.html
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
+
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubao.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -208,7 +336,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -221,473 +349,130 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://quandongli.github.io/post/fbeade06.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/17788ff.html" class="archive-article-date">
-  	<time datetime="2020-02-13T12:05:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/quandongli.github.io/post/17788ff.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java基础之内部类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是异常"><span class="toc-number">1.</span> <span class="toc-text">什么是异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常处理"><span class="toc-number">2.</span> <span class="toc-text">异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抛出异常"><span class="toc-number">2.1.</span> <span class="toc-text">抛出异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#捕获异常"><span class="toc-number">2.2.</span> <span class="toc-text">捕获异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手动抛出异常"><span class="toc-number">3.</span> <span class="toc-text">手动抛出异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义异常类"><span class="toc-number">4.</span> <span class="toc-text">自定义异常类</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/17788ff.html">java基础之内部类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/8118b911.html" class="archive-article-date">
-  	<time datetime="2020-02-12T13:17:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/8118b911.html">Java基础之接口</a>
-    </h1>
+
+
+
+      <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'b923cc9d75f5abe8d846',
+  	clientSecret: 'fe60ac1a03b171f8d597619739c8a3e2fc89ed74',
+  	repo: 'gitalk',
+  	owner: 'quandongli',
+  	admin: ['quandongli'],
+  	id: 'Sun Feb 16 2020 20:51:28 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/d70ea8f9.html" class="archive-article-date">
-  	<time datetime="2020-02-11T08:47:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/d70ea8f9.html">java基础之abstract的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/9742ed3b.html" class="archive-article-date">
-  	<time datetime="2020-02-03T15:00:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/9742ed3b.html">java基础之Object类的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/6eaacac6.html" class="archive-article-date">
-  	<time datetime="2020-02-01T14:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/6eaacac6.html">面向对象三大特性之多态性</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/3197e8b6.html" class="archive-article-date">
-  	<time datetime="2020-01-31T11:21:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/3197e8b6.html">面向对象三大特性之继承性</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/c08b9ed0.html" class="archive-article-date">
-  	<time datetime="2020-01-31T11:21:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/c08b9ed0.html">面向对象三大特性之封装性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/cfec4ed.html" class="archive-article-date">
-  	<time datetime="2020-01-21T13:37:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/cfec4ed.html">面向对象之类的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面向对象</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/quandongli.github.io/post/102131cd.html" class="archive-article-date">
-  	<time datetime="2020-01-15T05:28:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/quandongli.github.io/post/102131cd.html">Java基础之大数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">大数</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/quandongli.github.io/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/quandongli.github.io/tags/java/page/2/">2</a><a class="extend next" rel="next" href="/quandongli.github.io/tags/java/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -711,9 +496,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
